@@ -6,22 +6,26 @@ export const GetCustomNumber = unstable_cache(async () => {
   //   await sleep(100);
   const randomNumber = Math.random();
   return randomNumber;
-},["customNumber"]);
+}, ["customNumber"]);
 export const GetCachedNusmber = unstable_cache(async () => {
   //   await sleep(100);
   const randomNumber = Math.random();
   return randomNumber;
-},["cachedNumber"]);
+}, ["cachedNumber"]);
 export async function GetCachedNumber() {
   // URL="http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
-  const res = await fetch(process.env.URL + "/api/get-number", {
-    next: { tags: ["cachedNumber"] },
-    cache: "force-cache",
-  });
-  if (!res.ok) {
+  try {
+    const res = await fetch(process.env.URL + "/api/get-number", {
+      next: { tags: ["cachedNumber"] },
+      cache: "force-cache",
+    });
+    if (!res.ok) {
+      return "";
+    }
+    const json = await res.json();
+    return json.randomNumber;
+  } catch (error:any) {
     return "";
   }
-  const json = await res.json();
-  return json.randomNumber;
 }
