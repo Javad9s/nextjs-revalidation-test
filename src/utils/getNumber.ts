@@ -20,7 +20,7 @@ export async function GetCachedNumber() {
     cache: "force-cache",
   });
   if (!res.ok) {
-    throw new Error("ERROR_OCCURRED");
+    return "";
   }
   const json = await res.json();
   return json.randomNumber;
