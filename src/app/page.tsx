@@ -1,5 +1,10 @@
+import RevalidationPanel from "@/components/RevalidationPanel";
+
 export default function Home() {
   return (
-    <div>Main</div>
+    <>
+      <p className="text-lg font-bold">Home</p>
+      <RevalidationPanel />
+    </>
   );
 }
