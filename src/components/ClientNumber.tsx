@@ -1,12 +1,9 @@
 "use client";
 import RandomNumber from "./RandomNumber";
-
-const ClientNumber = () => {
+export default function ClientNumber() {
   return (
     <div>
       Client : <RandomNumber />
     </div>
   );
-};
-
-export default ClientNumber;
+}

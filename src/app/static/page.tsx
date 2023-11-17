@@ -1,7 +1,7 @@
 import ClientNumber from "@/components/ClientNumber";
 import ServerNumber from "@/components/ServerNumber";
 
-const page = () => {
+export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Static page</p>
@@ -9,6 +9,4 @@ const page = () => {
       <ClientNumber />
     </>
   );
-};
-
-export default page;
+}

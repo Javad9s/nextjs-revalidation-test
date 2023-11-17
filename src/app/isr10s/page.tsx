@@ -2,7 +2,7 @@ import ClientNumber from "@/components/ClientNumber";
 import ServerNumber from "@/components/ServerNumber";
 
 export const revalidate = 10;
-const page = () => {
+export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Revalidate every 10 seconds</p>
@@ -10,6 +10,4 @@ const page = () => {
       <ClientNumber />
     </>
   );
-};
-
-export default page;
+}

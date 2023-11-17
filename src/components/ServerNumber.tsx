@@ -1,11 +1,8 @@
 import RandomNumber from "./RandomNumber";
-
-const ServerNumber = () => {
+export default function ServerNumber() {
   return (
     <div>
       Server : <RandomNumber />
     </div>
   );
-};
-
-export default ServerNumber;
+}

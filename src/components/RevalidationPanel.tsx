@@ -1,9 +1,15 @@
 "use client";
 
-import { RevalidateISR1hPage, RevalidateRootLayout, RevalidateRootPage, RevalidateStaticPage } from "@/utils/actions";
+import {
+  RevalidateCachePage,
+  RevalidateCacheTag,
+  RevalidateISR1hPage,
+  RevalidateRootLayout,
+  RevalidateRootPage,
+  RevalidateStaticPage,
+} from "@/utils/actions";
 import { useState, useTransition } from "react";
-
-const RevalidationPanel = () => {
+export default function RevalidationPanel() {
   const [isPending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
   const onRevalidateRootLayout = () => {
@@ -50,6 +56,28 @@ const RevalidationPanel = () => {
       }
     });
   };
+  const onRevalidateCachePage = () => {
+    startTransition(async () => {
+      try {
+        await RevalidateCachePage();
+        setMessage("revalidated!");
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
+  const onRevalidatecacheTag = () => {
+    startTransition(async () => {
+      try {
+        await RevalidateCacheTag();
+        setMessage("revalidated!");
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4">
@@ -69,19 +97,29 @@ const RevalidationPanel = () => {
           onClick={onRevalidateStaticPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate Static Page
+          Revalidate static page
         </button>
         <button
           onClick={onRevalidateISR1hPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate ISR 1h Page
+          Revalidate ISR 1h page
+        </button>
+        <button
+          onClick={onRevalidateCachePage}
+          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
+        >
+          Revalidate cache page
+        </button>
+        <button
+          onClick={onRevalidatecacheTag}
+          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
+        >
+          Revalidate cache tag
         </button>
       </div>
       {isPending ? "pending..." : ""}
       {message}
     </>
   );
-};
-
-export default RevalidationPanel;
+}

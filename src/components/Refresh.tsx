@@ -1,8 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-
-const Refresh = () => {
+export default function Refresh() {
   const router = useRouter();
   const onRefreshClick = () => {
     router.refresh();
@@ -15,6 +14,4 @@ const Refresh = () => {
       Router.Refresh()
     </button>
   );
-};
-
-export default Refresh;
+}

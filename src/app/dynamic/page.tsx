@@ -2,7 +2,7 @@ import ClientNumber from "@/components/ClientNumber";
 import ServerNumber from "@/components/ServerNumber";
 
 export const dynamic = "force-dynamic";
-const page = () => {
+export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Dynamic page</p>
@@ -10,6 +10,4 @@ const page = () => {
       <ClientNumber />
     </>
   );
-};
-
-export default page;
+}
