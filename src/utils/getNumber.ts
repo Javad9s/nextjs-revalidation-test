@@ -6,9 +6,9 @@ export const GetCustomNumber = unstable_cache(async () => {
 //   await sleep(100);
   const randomNumber = Math.random();
   return randomNumber;
-}, ["customNumber"]);
+});
 export const GetCachedNumber = unstable_cache(async () => {
   //   await sleep(100);
     const randomNumber = Math.random();
     return randomNumber;
-  }, ["cachedNumber"]);
+  });
