@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./globals.css";
 import Refresh from "@/components/Refresh";
 import RandomNumber from "@/components/RandomNumber";
+import CachedNumber from "@/components/CachedNumber";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -67,6 +68,8 @@ export default function RootLayout({
           </nav>
           <Refresh />
           On Layout : <RandomNumber />
+          <br/>
+          Cached : <CachedNumber />
         </div>
         <div className="flex flex-col items-center justify-center gap-4">
           {children}

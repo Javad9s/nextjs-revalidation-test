@@ -18,3 +18,6 @@ export async function RevalidateCachePage() {
 export async function RevalidateCacheTag() {
   revalidateTag("cashedNumber");
 }
+export async function RevalidateCustomTag() {
+  revalidateTag("customNumber");
+}
