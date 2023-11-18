@@ -97,43 +97,43 @@ export default function RevalidationPanel() {
           onClick={onRevalidateRootLayout}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate root layout
+          root layout
         </button>
         <button
           onClick={onRevalidateRootPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate root page
+          root page
         </button>
         <button
           onClick={onRevalidateStaticPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate static page
+          static
         </button>
         <button
           onClick={onRevalidateISR1hPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate ISR 1h page
+          ISR 1h
         </button>
         <button
           onClick={onRevalidateCachePage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate cache page
+          with cache
         </button>
         <button
           onClick={onRevalidatecacheTag}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate layout cache tag
+          tag: on layout cache
         </button>
         <button
           onClick={onRevalidatecustomTag}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate custom cache tag
+          tag: custom cache
         </button>
       </div>
       {isPending ? "pending..." : ""}
