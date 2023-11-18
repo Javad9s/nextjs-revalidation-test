@@ -1,16 +1,14 @@
-import ClientNumber from "@/components/ClientNumber";
 import CustomNumber from "@/components/CustomNumber";
 import ServerNumber from "@/components/ServerNumber";
-import { GetCustomNumber } from "@/utils/getNumber";
+import { GetCustomCachedNumber } from "@/utils/getNumber";
 
 export default async function Page() {
-  const number = await GetCustomNumber();
+  const number = await GetCustomCachedNumber();
   return (
     <>
       <p className="text-lg font-bold">Unstable_Cache</p>
-      With Cache : <CustomNumber rnd={number} />
       <ServerNumber />
-      <ClientNumber />
+      With Custom Cache : <CustomNumber rnd={number} />
     </>
   );
 }

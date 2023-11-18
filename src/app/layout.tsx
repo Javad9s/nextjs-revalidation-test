@@ -67,9 +67,10 @@ export default function RootLayout({
             </Link>
           </nav>
           <Refresh />
-          On Layout : <RandomNumber />
-          <br/>
-          Cached : <CachedNumber />
+          <p>RSC On Layout : </p>
+          <RandomNumber />
+          <p>Unstable Cache On Layout : </p>
+          <CachedNumber />
         </div>
         <div className="flex flex-col items-center justify-center gap-4">
           {children}

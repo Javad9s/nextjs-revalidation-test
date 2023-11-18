@@ -3,6 +3,7 @@
 import {
   RevalidateCachePage,
   RevalidateCacheTag,
+  RevalidateCustomTag,
   RevalidateISR1hPage,
   RevalidateRootLayout,
   RevalidateRootPage,
@@ -78,6 +79,17 @@ export default function RevalidationPanel() {
       }
     });
   };
+  const onRevalidatecustomTag = () => {
+    startTransition(async () => {
+      try {
+        await RevalidateCustomTag();
+        setMessage("revalidated!");
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4">
@@ -115,7 +127,13 @@ export default function RevalidationPanel() {
           onClick={onRevalidatecacheTag}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          Revalidate cache tag
+          Revalidate layout cache tag
+        </button>
+        <button
+          onClick={onRevalidatecustomTag}
+          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
+        >
+          Revalidate custom cache tag
         </button>
       </div>
       {isPending ? "pending..." : ""}

@@ -2,11 +2,15 @@ import { unstable_cache } from "next/cache";
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-export const GetCustomNumber = unstable_cache(async () => {
-  //   await sleep(100);
-  const randomNumber = Math.random();
-  return randomNumber;
-}, ["key_customNumber"]);
+export const GetCustomCachedNumber = unstable_cache(
+  async () => {
+    //   await sleep(100);
+    const randomNumber = Math.random();
+    return randomNumber;
+  },
+  ["customNumber"],
+  { tags: ["customNumber"] },
+);
 export const GetUnsatableCachedNumber = unstable_cache(
   async () => {
     //   await sleep(100);
@@ -17,7 +21,7 @@ export const GetUnsatableCachedNumber = unstable_cache(
   ["cachedNumber"],
   { tags: ["cachedNumber"] },
 );
-export async function GetCachedNumber() {
+export async function GetFetchCachedNumber() {
   // URL="http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
   try {
