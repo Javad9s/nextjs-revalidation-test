@@ -60,6 +60,12 @@ export default function RootLayout({
               with cache
             </Link>
             <Link
+              href={"/with-client"}
+              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
+            >
+              with client
+            </Link>
+            <Link
               href={"/control-panel"}
               className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
             >
