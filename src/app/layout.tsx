@@ -71,6 +71,12 @@ export default function RootLayout({
             >
               control panel
             </Link>
+            <Link
+              href={"/no-where"}
+              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
+            >
+              not found
+            </Link>
           </nav>
           <Refresh />
           <p>RSC On Layout : </p>
