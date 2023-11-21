@@ -1,6 +1,6 @@
-import CustomNumber from "./CustomNumber";
+import NumDisplay from "./NumDisplay";
 
 export default function RandomNumber() {
   const randomNumber = Math.random();
-  return <CustomNumber rnd={randomNumber} />;
+  return <NumDisplay rnd={randomNumber} />;
 }

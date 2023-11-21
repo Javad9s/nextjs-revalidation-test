@@ -6,6 +6,6 @@ function getInt(rnd: number) {
 interface Props {
   rnd: number;
 }
-export default function CustomNumber({ rnd }: Props) {
-  return <>{`${getInt(rnd)} - ${rnd}`}</>;
+export default function NumDisplay({ rnd }: Props) {
+  return <>{`${getInt(rnd)} <${rnd}>`}</>;
 }

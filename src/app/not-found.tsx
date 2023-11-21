@@ -1,3 +1,10 @@
+import ServerNumber from "@/components/ServerNumber";
+
 export default function NotFoundPage() {
-  return <>Not found</>;
+  return (
+    <>
+      <p className="text-lg font-bold">Not Found Page</p>
+      <ServerNumber />
+    </>
+  );
 }

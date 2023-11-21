@@ -1,17 +1,14 @@
-import CustomNumber from "@/components/CustomNumber";
+import NumDisplay from "@/components/NumDisplay";
 import ServerNumber from "@/components/ServerNumber";
-import { GetCustomCachedNumber, GetUnsatableCachedNumber } from "@/utils/getNumber";
+import { GetCustomCachedNumber } from "@/utils/getNumber";
 
 export default async function Page() {
   const custom_number = await GetCustomCachedNumber();
-  const cached_number = await GetUnsatableCachedNumber();
   return (
     <>
       <p className="text-lg font-bold">Unstable_Cache</p>
       <ServerNumber />
-      Custom Cache : <CustomNumber rnd={custom_number} />
-      <br/>
-      Layout Cache : <CustomNumber rnd={cached_number} />
+      Custom Cache : <NumDisplay rnd={custom_number} />
     </>
   );
 }
