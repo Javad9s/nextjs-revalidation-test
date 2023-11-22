@@ -26,8 +26,8 @@ export async function GetFetchCachedNumber() {
   // URL = "https://nextjs-revalidation-test.vercel.app"
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
-      next: { tags: ["fetchNumber"] },
-      cache: "force-cache",
+      next: { revalidate: 7200, tags: ["fetchNumber"] },
+      // cache: "force-cache",
     });
     if (!res.ok) {
       return "";
