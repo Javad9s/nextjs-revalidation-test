@@ -13,13 +13,11 @@ export const GetCustomCachedNumber = unstable_cache(
 );
 export const GetUnsatableCachedNumber = unstable_cache(
   async () => {
-    //   await sleep(100);
     const randomNumber = Math.random();
-    // console.log(randomNumber);
     return randomNumber;
   },
   ["cachedNumber"],
-  { tags: ["cachedNumber"] },
+  { revalidate: 259200, tags: ["cachedNumber"] },
 );
 export async function GetFetchCachedNumber() {
   // URL="http://localhost:3000"
