@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "source ./get-sc-creds.sh; next build",
+    "local-build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
