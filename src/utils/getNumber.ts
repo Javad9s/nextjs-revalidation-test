@@ -38,4 +38,4 @@ async function GetFetchCachedNumber() {
     return "";
   }
 }
-export const GetCachedNumber = GetUnsatableCachedNumber;
+export const GetCachedNumber = GetFetchCachedNumber;
