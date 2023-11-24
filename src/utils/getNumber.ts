@@ -11,7 +11,8 @@ export const GetCustomCachedNumber = unstable_cache(
   ["customNumber"],
   { tags: ["customNumber"] },
 );
-export const GetUnsatableCachedNumber = unstable_cache(
+
+const GetUnsatableCachedNumber = unstable_cache(
   async () => {
     const randomNumber = Math.random();
     return randomNumber;
@@ -19,7 +20,7 @@ export const GetUnsatableCachedNumber = unstable_cache(
   ["cachedNumber"],
   { revalidate: 259200, tags: ["cachedNumber"] },
 );
-export async function GetFetchCachedNumber() {
+async function GetFetchCachedNumber() {
   // URL="http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
   try {
@@ -37,3 +38,4 @@ export async function GetFetchCachedNumber() {
     return "";
   }
 }
+export const GetCachedNumber = GetUnsatableCachedNumber;
