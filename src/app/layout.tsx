@@ -1,10 +1,8 @@
+import CachedNumber from "@/components/CachedNumber";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Link from "next/link";
 import "./globals.css";
-import Refresh from "@/components/Refresh";
-import RandomNumber from "@/components/RandomNumber";
-import CachedNumber from "@/components/CachedNumber";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,73 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="m-5 flex flex-col items-center justify-center gap-4 border-2 border-gray-400 bg-stone-100 p-4">
-          <nav className="flex flex-wrap justify-center gap-2">
-            <Link
-              href={"/"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              Home
-            </Link>
-            <Link
-              href={"/static"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              static
-            </Link>
-            <Link
-              href={"/isr10s"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              isr 10s
-            </Link>
-            <Link
-              href={"/isr1h"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              isr 1h
-            </Link>
-            <Link
-              href={"/dynamic"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              dynamic
-            </Link>
-            <Link
-              href={"/with-cache"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              with cache
-            </Link>
-            <Link
-              href={"/cache-render"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              react cache
-            </Link>
-            <Link
-              href={"/with-client"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              with client
-            </Link>
-            <Link
-              href={"/control-panel"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              control panel
-            </Link>
-            <a
-              href={"/nowhere"}
-              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-            >
-              not found
-            </a>
-          </nav>
-          <Refresh />
-          <p>Cache On Layout : </p>
-          <CachedNumber />
-        </div>
+        <Navbar />
         <div className="flex flex-col items-center justify-center gap-4">
           {children}
         </div>
