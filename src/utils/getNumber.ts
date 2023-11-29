@@ -1,4 +1,5 @@
 import { unstable_cache } from "next/cache";
+import { renderLog } from "./utils";
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -23,7 +24,7 @@ const GetUnsatableCachedNumber = unstable_cache(
 async function GetFetchCachedNumber() {
   // URL="http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
-  console.log("### --- Called GetFetchCachedNumber");
+  renderLog("### --- Called GetFetchCachedNumber");
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
       next: { revalidate: 259200, tags: ["cachedNumber"] },

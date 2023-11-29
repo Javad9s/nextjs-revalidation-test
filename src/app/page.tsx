@@ -1,5 +1,7 @@
+import { renderLog } from "@/utils/utils";
+
 export default function Home() {
-  console.log("### --- Rendered home page.tsx");
+  renderLog("### --- Rendered home page.tsx");
   return (
     <>
       <p className="text-lg font-bold">Home</p>

@@ -1,7 +1,8 @@
 import RevalidationPanel from "@/components/RevalidationPanel";
+import { renderLog } from "@/utils/utils";
 
 export default function Page() {
-  console.log("### --- Rendered control panel page.tsx");
+  renderLog("### --- Rendered control panel page.tsx");
   return (
     <>
       <p className="text-lg font-bold">Revalidate each page:</p>

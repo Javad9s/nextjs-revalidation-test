@@ -1,9 +1,10 @@
 import NumDisplay from "@/components/NumDisplay";
 import ServerNumber from "@/components/ServerNumber";
 import { GetCustomCachedNumber } from "@/utils/getNumber";
+import { renderLog } from "@/utils/utils";
 
 export default async function Page() {
-  console.log("### --- Rendered Unstable_Cache page.tsx");
+  renderLog("### --- Rendered Unstable_Cache page.tsx");
   const custom_number = await GetCustomCachedNumber();
   return (
     <>

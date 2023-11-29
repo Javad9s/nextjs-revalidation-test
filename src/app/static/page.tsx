@@ -1,7 +1,8 @@
 import ServerNumber from "@/components/ServerNumber";
+import { renderLog } from "@/utils/utils";
 
 export default function Page() {
-  console.log("### --- Rendered static page.tsx");
+  renderLog("### --- Rendered static page.tsx");
   return (
     <>
       <p className="text-lg font-bold">Static page</p>
