@@ -60,6 +60,12 @@ export default function RootLayout({
               with cache
             </Link>
             <Link
+              href={"/cache-render"}
+              className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
+            >
+              react cache
+            </Link>
+            <Link
               href={"/with-client"}
               className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
             >
@@ -79,7 +85,7 @@ export default function RootLayout({
             </Link>
           </nav>
           <Refresh />
-          <p>Unstable Cache On Layout : </p>
+          <p>Cache On Layout : </p>
           <CachedNumber />
         </div>
         <div className="flex flex-col items-center justify-center gap-4">
