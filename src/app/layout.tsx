@@ -77,12 +77,12 @@ export default function RootLayout({
             >
               control panel
             </Link>
-            <Link
+            <a
               href={"/nowhere"}
               className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
             >
               not found
-            </Link>
+            </a>
           </nav>
           <Refresh />
           <p>Cache On Layout : </p>

@@ -3,6 +3,7 @@ import ServerNumber from "@/components/ServerNumber";
 import { GetCustomCachedNumber } from "@/utils/getNumber";
 
 export default async function Page() {
+  console.log("### --- Rendered Unstable_Cache page.tsx");
   const custom_number = await GetCustomCachedNumber();
   return (
     <>

@@ -10,7 +10,6 @@ const getNumber = cache(() => {
 export default function Page() {
   const custom_number = getNumber();
   console.log("### --- Rendered cache-render page.tsx");
-
   return (
     <>
       <p className="text-lg font-bold">Render with react cache</p>
