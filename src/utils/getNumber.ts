@@ -1,25 +1,26 @@
 import { unstable_cache } from "next/cache";
 import { renderLog } from "./utils";
-function sleep(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+export function GetRandomNumber() {
+  const randomNumber = Math.random() * 999;
+  const currentDate = new Date();
+  const utcDate = currentDate.toISOString().slice(0, 10);
+  const utcTime = currentDate.toISOString().slice(11, 19);
+  return `<${randomNumber}> updated at ${utcDate} ${utcTime} UTC`;
 }
-export const GetCustomCachedNumber = unstable_cache(
-  async () => {
-    //   await sleep(100);
-    const randomNumber = Math.random();
-    return randomNumber;
-  },
-  ["customNumber"],
-  { tags: ["customNumber"] },
-);
 
 const GetUnsatableCachedNumber = unstable_cache(
   async () => {
-    const randomNumber = Math.random();
-    return randomNumber;
+    return GetRandomNumber();
   },
   ["cachedNumber"],
   { revalidate: 259200, tags: ["cachedNumber"] },
+);
+const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
+  async () => {
+    return GetRandomNumber();
+  },
+  ["cachedNumber"],
+  { tags: ["cachedNumber"] },
 );
 async function GetFetchCachedNumber() {
   // URL="http://localhost:3000"
@@ -28,8 +29,6 @@ async function GetFetchCachedNumber() {
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
       next: { revalidate: 259200, tags: ["cachedNumber"] },
-      // next: { tags: ["cachedNumber"] },
-      // cache: "force-cache",
     });
     if (!res.ok) {
       return "";

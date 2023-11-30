@@ -1,13 +1,9 @@
 "use client";
 
 import {
-  RevalidateCachePage,
   RevalidateCacheTag,
-  RevalidateCustomTag,
   RevalidateISR1hPage,
-  RevalidateRootLayout,
-  RevalidateRootPage,
-  RevalidateStaticPage,
+  RevalidateRootLayout
 } from "@/utils/actions";
 import { useState, useTransition } from "react";
 export default function RevalidationPanel() {
@@ -24,28 +20,7 @@ export default function RevalidationPanel() {
       }
     });
   };
-  const onRevalidateRootPage = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateRootPage();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
-  const onRevalidateStaticPage = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateStaticPage();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
+
   const onRevalidateISR1hPage = () => {
     startTransition(async () => {
       try {
@@ -57,17 +32,7 @@ export default function RevalidationPanel() {
       }
     });
   };
-  const onRevalidateCachePage = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateCachePage();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
+
   const onRevalidatecacheTag = () => {
     startTransition(async () => {
       try {
@@ -79,17 +44,7 @@ export default function RevalidationPanel() {
       }
     });
   };
-  const onRevalidatecustomTag = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateCustomTag();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
+
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4">
@@ -99,41 +54,19 @@ export default function RevalidationPanel() {
         >
           root layout
         </button>
-        <button
-          onClick={onRevalidateRootPage}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          root page
-        </button>
-        <button
-          onClick={onRevalidateStaticPage}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          static
-        </button>
+
         <button
           onClick={onRevalidateISR1hPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
           ISR 1h
         </button>
-        <button
-          onClick={onRevalidateCachePage}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          with cache
-        </button>
+
         <button
           onClick={onRevalidatecacheTag}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          tag: on layout cache
-        </button>
-        <button
-          onClick={onRevalidatecustomTag}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          tag: custom cache
+          cache tag
         </button>
       </div>
       {isPending ? "pending..." : ""}

@@ -1,4 +1,4 @@
-import ServerNumber from "@/components/ServerNumber";
+import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 
 // export const dynamic = "force-dynamic";
@@ -9,7 +9,7 @@ export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Dynamic page</p>
-      <ServerNumber />
+      <RandomNumber />
     </>
   );
 }

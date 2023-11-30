@@ -3,65 +3,35 @@ import CachedNumber from "./CachedNumber";
 import Refresh from "./Refresh";
 
 export default function Navbar() {
+  const links = [
+    { href: "/", title: "Home" },
+    { href: "/static01", title: "Static 01" },
+    { href: "/static02", title: "Static 02" },
+    { href: "/static03", title: "Static 03" },
+    { href: "/static04", title: "Static 04" },
+    { href: "/static05", title: "Static 05" },
+    { href: "/static06", title: "Static 06" },
+    { href: "/isr10s", title: "ISR 10s", prefetch: false },
+    { href: "/isr60s", title: "ISR 60s",},
+    { href: "/isr1h01", title: "ISR 1h 01" },
+    { href: "/isr1h02", title: "ISR 1h 02" },
+    { href: "/isr1h03", title: "ISR 1h 03" },
+    { href: "/dynamic", title: "Dynamic" },
+    { href: "/control-panel", title: "Control Panel" },
+  ];
   return (
     <div className="m-5 flex flex-col items-center justify-center gap-4 border-2 border-gray-400 bg-stone-100 p-4">
       <nav className="flex flex-wrap justify-center gap-2">
-        <Link
-          href={"/"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          Home
-        </Link>
-        <Link
-          href={"/static"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          static
-        </Link>
-        <Link
-          href={"/isr10s"}
-          prefetch={false}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          isr 10s
-        </Link>
-        <Link
-          href={"/isr1h"}
-          prefetch={false}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          isr 1h
-        </Link>
-        <Link
-          href={"/dynamic"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          dynamic
-        </Link>
-        <Link
-          href={"/with-cache"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          with cache
-        </Link>
-        <Link
-          href={"/cache-render"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          react cache
-        </Link>
-        <Link
-          href={"/with-client"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          with client
-        </Link>
-        <Link
-          href={"/control-panel"}
-          className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
-        >
-          control panel
-        </Link>
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            href={link.href}
+            prefetch={link.prefetch || true}
+            className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
+          >
+            {link.title}
+          </Link>
+        ))}
         <a
           href={"/nowhere"}
           className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
@@ -70,7 +40,6 @@ export default function Navbar() {
         </a>
       </nav>
       <Refresh />
-      <p>Cache On Layout : </p>
       <CachedNumber />
     </div>
   );

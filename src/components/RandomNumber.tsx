@@ -1,6 +1,5 @@
-import NumDisplay from "./NumDisplay";
+import { GetRandomNumber } from "@/utils/getNumber";
 
 export default function RandomNumber() {
-  const randomNumber = Math.random();
-  return <NumDisplay rnd={randomNumber} />;
+  return <div>{`Not cached: ${GetRandomNumber()}`}</div>;
 }
