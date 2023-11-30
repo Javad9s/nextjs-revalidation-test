@@ -3,7 +3,8 @@
 import {
   RevalidateCacheTag,
   RevalidateISR1hPage,
-  RevalidateRootLayout
+  RevalidateNotFound,
+  RevalidateRootLayout,
 } from "@/utils/actions";
 import { useState, useTransition } from "react";
 export default function RevalidationPanel() {
@@ -20,7 +21,28 @@ export default function RevalidationPanel() {
       }
     });
   };
-
+  const onRevalidateCacheTag = () => {
+    startTransition(async () => {
+      try {
+        await RevalidateCacheTag();
+        setMessage("revalidated!");
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
+  const onRevalidateNotFound = () => {
+    startTransition(async () => {
+      try {
+        await RevalidateNotFound();
+        setMessage("revalidated!");
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
   const onRevalidateISR1hPage = () => {
     startTransition(async () => {
       try {
@@ -32,19 +54,6 @@ export default function RevalidationPanel() {
       }
     });
   };
-
-  const onRevalidatecacheTag = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateCacheTag();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
-
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4">
@@ -54,19 +63,23 @@ export default function RevalidationPanel() {
         >
           root layout
         </button>
-
+        <button
+          onClick={onRevalidateCacheTag}
+          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
+        >
+          cache tag
+        </button>
+        <button
+          onClick={onRevalidateNotFound}
+          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
+        >
+          not found
+        </button>
         <button
           onClick={onRevalidateISR1hPage}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
           ISR 1h
-        </button>
-
-        <button
-          onClick={onRevalidatecacheTag}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          cache tag
         </button>
       </div>
       {isPending ? "pending..." : ""}

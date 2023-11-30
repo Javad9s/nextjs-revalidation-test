@@ -9,6 +9,9 @@ export async function RevalidateISR1hPage() {
   revalidatePath("/isr1h03");
 
 }
+export async function RevalidateNotFound() {
+  revalidatePath("/_not-found ");
+}
 export async function RevalidateCacheTag() {
   revalidateTag("cashedNumber");
 }
