@@ -17,6 +17,7 @@ export default function Navbar() {
     { href: "/isr1h02", title: "ISR 1h 02" },
     { href: "/isr1h03", title: "ISR 1h 03" },
     { href: "/dynamic", title: "Dynamic" },
+    { href: "/params/01", title: "params/01" },
     { href: "/control-panel", title: "Control Panel" },
   ];
   return (
