@@ -23,7 +23,7 @@ const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
   { tags: ["cachedNumber"] },
 );
 async function GetFetchCachedNumber() {
-  // URL="http://localhost:3000"
+  // URL = "http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
   renderLog("### --- Called GetFetchCachedNumber");
   try {
@@ -39,4 +39,21 @@ async function GetFetchCachedNumber() {
     return "";
   }
 }
-export const GetCachedNumber = GetFetchCachedNumber;
+async function GetFetchCachedNumber_NoRevalidate() {
+  // URL = "http://localhost:3000"
+  // URL = "https://nextjs-revalidation-test.vercel.app"
+  renderLog("### --- Called GetFetchCachedNumber");
+  try {
+    const res = await fetch(process.env.URL + "/api/get-number", {
+      next: { tags: ["cachedNumber"] },
+    });
+    if (!res.ok) {
+      return "";
+    }
+    const json = await res.json();
+    return json.randomNumber;
+  } catch (error: any) {
+    return "";
+  }
+}
+export const GetCachedNumber = GetUnsatableCachedNumber_NoRevalidate;

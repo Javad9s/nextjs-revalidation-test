@@ -1,3 +1,4 @@
+import CachedNumber from "@/components/CachedNumber";
 import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 
@@ -7,6 +8,7 @@ export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Revalidate every 60 seconds</p>
+      <CachedNumber />
       <RandomNumber />
     </>
   );
