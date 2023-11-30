@@ -10,7 +10,7 @@ export async function RevalidateISR1hPage() {
 
 }
 export async function RevalidateNotFound() {
-  revalidatePath("/_not-found ");
+  revalidatePath("/_not-found");
 }
 export async function RevalidateCacheTag() {
   revalidateTag("cashedNumber");
