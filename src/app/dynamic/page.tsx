@@ -1,3 +1,4 @@
+import CachedNumber from "@/components/CachedNumber";
 import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 
@@ -9,6 +10,7 @@ export default function Page() {
   return (
     <>
       <p className="text-lg font-bold">Dynamic page</p>
+      <CachedNumber />
       <RandomNumber />
     </>
   );

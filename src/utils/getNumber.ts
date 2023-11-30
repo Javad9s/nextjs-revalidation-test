@@ -15,6 +15,8 @@ const GetUnsatableCachedNumber = unstable_cache(
   ["cachedNumber"],
   { revalidate: 259200, tags: ["cachedNumber"] },
 );
+
+// Buggy
 const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
   async () => {
     return GetRandomNumber();
@@ -56,4 +58,4 @@ async function GetFetchCachedNumber_NoRevalidate() {
     return "";
   }
 }
-export const GetCachedNumber = GetUnsatableCachedNumber_NoRevalidate;
+export const GetCachedNumber = GetUnsatableCachedNumber;
