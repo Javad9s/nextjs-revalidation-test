@@ -2,6 +2,7 @@ import CachedNumber from "@/components/CachedNumber";
 import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 interface Props {
   params: {
     id: string;
@@ -13,6 +14,10 @@ export function generateStaticParams() {
 }
 export default function Page({ params: { id } }: Props) {
   renderLog(`### --- Rendered param page ${id}.tsx`);
+  const number = parseInt(id);
+  if (number >= 20 && number <= 29) {
+    notFound();
+  }
   const links = [
     { href: "/params/01", title: "param 01" },
     { href: "/params/02", title: "param 02" },
@@ -39,6 +44,7 @@ export default function Page({ params: { id } }: Props) {
         ))}
       </div>
       <p className="text-lg font-bold">{`param = ${id}`}</p>
+      <p>Id 20 to 29 will return a notfound</p>
       <CachedNumber />
       <RandomNumber />
     </>
