@@ -15,7 +15,7 @@ export function generateStaticParams() {
 export default function Page({ params: { id } }: Props) {
   renderLog(`### --- Rendered param page ${id}.tsx`);
   const number = parseInt(id);
-  if (number >= 20 && number <= 29) {
+  if (number >= 30 && number <= 59) {
     notFound();
   }
   const links = [
