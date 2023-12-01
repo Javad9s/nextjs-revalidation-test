@@ -1,5 +1,5 @@
 import { GetRandomNumber } from "@/utils/getNumber";
 
 export default function RandomNumber() {
-  return <div>{`Not cached: ${GetRandomNumber()}`}</div>;
+  return <div>{`Page Specific ${GetRandomNumber()}`}</div>;
 }

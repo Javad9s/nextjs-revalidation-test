@@ -12,7 +12,7 @@ export default function Navbar() {
     { href: "/static05", title: "Static 05" },
     { href: "/static06", title: "Static 06" },
     { href: "/isr10s", title: "ISR 10s", prefetch: false },
-    { href: "/isr60s", title: "ISR 60s",},
+    { href: "/isr60s", title: "ISR 60s" },
     { href: "/isr1h01", title: "ISR 1h 01" },
     { href: "/isr1h02", title: "ISR 1h 02" },
     { href: "/isr1h03", title: "ISR 1h 03" },
