@@ -65,4 +65,4 @@ async function GetFetchCachedNumber_NoRevalidate() {
     return "";
   }
 }
-export const GetCachedNumber = GetUnsatableCachedNumber;
+export const GetCachedNumber = GetFetchCachedNumber;
