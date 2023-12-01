@@ -4,7 +4,7 @@ export default function Home() {
   renderLog("### --- Rendered home page.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Next v14.0.4-canary.28</p>
+      <p className="text-lg font-bold">Next v14.0.4-canary.31</p>
       <p className="text-lg font-bold">Steps to reproduce</p>
       <p>1. Go to Control Panel, click on cache tag.</p>
       <p>2. Click on root layout.</p>
