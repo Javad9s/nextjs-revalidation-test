@@ -1,10 +1,12 @@
+import CachedNumber from "@/components/CachedNumber";
 import { renderLog } from "@/utils/utils";
 
 export default function Home() {
   renderLog("### --- Rendered home page.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Next v14.0.4-canary.31</p>
+      <p className="text-lg font-bold">Next v14.0.4-canary.36</p>
+      <CachedNumber />
       <div className="items-start">
         <p className="text-lg font-bold">Steps to reproduce</p>
         <br />
@@ -66,6 +68,10 @@ export default function Home() {
         <p>
           5. Must implement a garbage collector mechanism with Maximum cache
           size and maximum cache age that purges oldest visited page.
+        </p>
+        <p>
+          6. With this behavior regular pages with params will also be generated
+          and cached without proper control.
         </p>
       </div>
     </>
