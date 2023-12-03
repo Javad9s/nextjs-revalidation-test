@@ -41,7 +41,6 @@ export default function Navbar() {
         </a>
       </nav>
       <Refresh />
-      <CachedNumber />
     </div>
   );
 }
