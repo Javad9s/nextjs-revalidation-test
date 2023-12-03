@@ -55,6 +55,7 @@ async function GetFetchCachedNumber_NoRevalidate() {
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
       next: { tags: ["cachedNumber"] },
+      cache: "force-cache",
     });
     if (!res.ok) {
       return "";
@@ -65,4 +66,4 @@ async function GetFetchCachedNumber_NoRevalidate() {
     return "";
   }
 }
-export const GetCachedNumber = GetFetchCachedNumber;
+export const GetCachedNumber = GetFetchCachedNumber_NoRevalidate;
