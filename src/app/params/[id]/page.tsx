@@ -44,7 +44,7 @@ export default function Page({ params: { id } }: Props) {
         ))}
       </div>
       <p className="text-lg font-bold">{`param = ${id}`}</p>
-      <p>Id 20 to 29 will return a notfound</p>
+      <p>Id 30 to 59 will return a notfound</p>
       <CachedNumber />
       <RandomNumber />
     </>
