@@ -51,6 +51,7 @@ export default function RevalidationPanel() {
           "https://next-personal-assistant.vercel.app/api/revalidation-test-deploy";
         const res = await fetch(redeployment_URI, {
           method: "POST",
+          mode: "no-cors",
           headers: { "Content-Type": "application/json" },
         });
         if (!res.ok) {
