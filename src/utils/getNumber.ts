@@ -1,5 +1,5 @@
 import { unstable_cache } from "next/cache";
-import { renderLog } from "./utils";
+import { CACHED_NUMBER_TAG, renderLog } from "./utils";
 function getInt(rnd: number) {
   const min = 100;
   const max = 997;
@@ -19,8 +19,8 @@ const GetUnsatableCachedNumber = unstable_cache(
   async () => {
     return GetRandomNumber();
   },
-  ["cachedNumber"],
-  { revalidate: 259200, tags: ["cachedNumber"] },
+  [CACHED_NUMBER_TAG],
+  { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
 );
 
 // Buggy
@@ -28,8 +28,8 @@ const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
   async () => {
     return GetRandomNumber();
   },
-  ["cachedNumber"],
-  { tags: ["cachedNumber"] },
+  [CACHED_NUMBER_TAG],
+  { tags: [CACHED_NUMBER_TAG] },
 );
 async function GetFetchCachedNumber() {
   // URL = "http://localhost:3000"
@@ -37,7 +37,7 @@ async function GetFetchCachedNumber() {
   renderLog("### --- Called GetFetchCachedNumber");
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
-      next: { revalidate: 259200, tags: ["cachedNumber"] },
+      next: { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
     });
     if (!res.ok) {
       return "";
@@ -54,7 +54,7 @@ async function GetFetchCachedNumber_NoRevalidate() {
   renderLog("### --- Called GetFetchCachedNumber");
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
-      next: { tags: ["cachedNumber"] },
+      next: { tags: [CACHED_NUMBER_TAG] },
       cache: "force-cache",
     });
     if (!res.ok) {
