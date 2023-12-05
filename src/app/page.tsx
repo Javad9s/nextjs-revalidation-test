@@ -5,7 +5,7 @@ export default function Home() {
   renderLog("### --- Rendered home page.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Next v14.0.4-canary.36</p>
+      <p className="text-lg font-bold">Next v14.0.4-canary.40</p>
       <CachedNumber />
       <div className="items-start">
         <p className="text-lg font-bold">Steps to reproduce</p>
