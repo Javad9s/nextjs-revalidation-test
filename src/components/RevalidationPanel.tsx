@@ -32,7 +32,6 @@ export default function RevalidationPanel() {
     });
   };
   const onRevalidateCustomPath = () => {
-
     startTransition(async () => {
       try {
         var customPath = prompt("Please enter your path: (ex: /static/03)");
@@ -45,6 +44,29 @@ export default function RevalidationPanel() {
       }
     });
   };
+  const onRedeploy = () => {
+    startTransition(async () => {
+      try {
+        const redeployment_URI =
+          "https://next-personal-assistant.vercel.app/api/revalidation-test-deploy";
+        const res = await fetch(redeployment_URI, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        if (!res.ok) {
+          setMessage(await res.text());
+          return;
+        }
+        setMessage(await res.text());
+      } catch (error) {
+        setMessage("Error!");
+        console.log(error);
+      }
+    });
+  };
+
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4">
@@ -66,9 +88,14 @@ export default function RevalidationPanel() {
         >
           custom path
         </button>
+        <button
+          onClick={onRedeploy}
+          className="rounded-lg bg-red-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-red-700 active:shadow-lg"
+        >
+          Redeploy
+        </button>
       </div>
-      {isPending ? "pending..." : ""}
-      {message}
+      {isPending ? "pending..." : message}
     </>
   );
 }
