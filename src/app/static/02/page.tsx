@@ -2,12 +2,11 @@ import CachedNumber from "@/components/CachedNumber";
 import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 
-export const revalidate = 10;
 export default function Page() {
-  renderLog("### --- Rendered ISR 60 s page.tsx");
+  renderLog("Rendered static page 02.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Revalidate every 60 seconds</p>
+      <p className="text-lg font-bold">Static page 02</p>
       <CachedNumber />
       <RandomNumber />
     </>

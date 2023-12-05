@@ -2,8 +2,7 @@
 
 import {
   RevalidateCacheTag,
-  RevalidateISR1hPage,
-  RevalidateNotFound,
+  RevalidateCustomPath,
   RevalidateRootLayout,
 } from "@/utils/actions";
 import { useState, useTransition } from "react";
@@ -32,21 +31,13 @@ export default function RevalidationPanel() {
       }
     });
   };
-  const onRevalidateNotFound = () => {
+  const onRevalidateCustomPath = () => {
+
     startTransition(async () => {
       try {
-        await RevalidateNotFound();
-        setMessage("revalidated!");
-      } catch (error) {
-        setMessage("Error!");
-        console.log(error);
-      }
-    });
-  };
-  const onRevalidateISR1hPage = () => {
-    startTransition(async () => {
-      try {
-        await RevalidateISR1hPage();
+        var customPath = prompt("Please enter your path: (ex: /static/03)");
+        if (!customPath) throw new Error();
+        await RevalidateCustomPath(customPath);
         setMessage("revalidated!");
       } catch (error) {
         setMessage("Error!");
@@ -70,16 +61,10 @@ export default function RevalidationPanel() {
           cache tag
         </button>
         <button
-          onClick={onRevalidateNotFound}
+          onClick={onRevalidateCustomPath}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          not found
-        </button>
-        <button
-          onClick={onRevalidateISR1hPage}
-          className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
-        >
-          ISR 1h
+          custom path
         </button>
       </div>
       {isPending ? "pending..." : ""}

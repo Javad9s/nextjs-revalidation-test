@@ -5,18 +5,13 @@ import Refresh from "./Refresh";
 export default function Navbar() {
   const links = [
     { href: "/", title: "Home" },
-    { href: "/static01", title: "Static 01" },
-    { href: "/static02", title: "Static 02" },
-    { href: "/static03", title: "Static 03" },
-    { href: "/static04", title: "Static 04" },
-    { href: "/static05", title: "Static 05" },
-    { href: "/static06", title: "Static 06" },
-    { href: "/isr10s", title: "ISR 10s", prefetch: false },
-    { href: "/isr60s", title: "ISR 60s" },
-    { href: "/isr1h01", title: "ISR 1h 01" },
-    { href: "/isr1h02", title: "ISR 1h 02" },
-    { href: "/isr1h03", title: "ISR 1h 03" },
-    { href: "/dynamic", title: "Dynamic" },
+    { href: "/static/01", title: "Static 01" },
+    { href: "/static/02", title: "Static 02" },
+    { href: "/static/03", title: "Static 03" },
+    { href: "/static/04", title: "Static 04" },
+    { href: "/isr/10s", title: "ISR 10s", prefetch: false },
+    { href: "/isr/1h", title: "ISR 1h" },
+    { href: "/dynamic", title: "Dynamic", prefetch: false },
     { href: "/params/01", title: "params/01" },
     { href: "/control-panel", title: "Control Panel" },
   ];
@@ -27,7 +22,7 @@ export default function Navbar() {
           <Link
             key={index}
             href={link.href}
-            prefetch={link.prefetch || true}
+            prefetch={link.prefetch}
             className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
           >
             {link.title}

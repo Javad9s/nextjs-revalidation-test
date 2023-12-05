@@ -8,11 +8,10 @@ function getInt(rnd: number) {
 export function GetRandomNumber() {
   const randomNumber = Math.random();
   const currentDate = new Date();
-  const utcDate = currentDate.toISOString().slice(0, 10);
+  const utcDate = currentDate.toISOString().slice(5, 10);
   const utcTime = currentDate.toISOString().slice(11, 19);
-  return `<${
-    getInt(randomNumber) + randomNumber
-  }> updated at ${utcDate} ${utcTime} UTC`;
+  // return `<${getInt(randomNumber) + randomNumber}> ${utcDate} ${utcTime}`;
+  return `<${getInt(randomNumber)}> ${utcDate} ${utcTime}`;
 }
 
 const GetUnsatableCachedNumber = unstable_cache(
@@ -34,36 +33,36 @@ const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
 async function GetFetchCachedNumber() {
   // URL = "http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
-  renderLog("### --- Called GetFetchCachedNumber");
+  renderLog("Called GetFetchCachedNumber");
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
       next: { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
     });
     if (!res.ok) {
-      return "";
+      return "api-error";
     }
     const json = await res.json();
     return json.randomNumber;
   } catch (error: any) {
-    return "";
+    return "api-error";
   }
 }
 async function GetFetchCachedNumber_NoRevalidate() {
   // URL = "http://localhost:3000"
   // URL = "https://nextjs-revalidation-test.vercel.app"
-  renderLog("### --- Called GetFetchCachedNumber");
+  // renderLog("Called GetFetchCachedNumber");
   try {
     const res = await fetch(process.env.URL + "/api/get-number", {
       next: { tags: [CACHED_NUMBER_TAG] },
       cache: "force-cache",
     });
     if (!res.ok) {
-      return "";
+      return "api-error";
     }
     const json = await res.json();
     return json.randomNumber;
   } catch (error: any) {
-    return "";
+    return "api-error";
   }
 }
 export const GetCachedNumber = GetFetchCachedNumber_NoRevalidate;

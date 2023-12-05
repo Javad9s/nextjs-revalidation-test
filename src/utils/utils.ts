@@ -1,4 +1,6 @@
 export function renderLog(log: string) {
-  if (process.env.RENDER_LOG == "true") console.log(log);
+  const currentDate = new Date();
+  const utcTime = currentDate.toISOString().slice(11, 19);
+  if (process.env.RENDER_LOG == "true") console.log(`### --- ${utcTime} --- ${log}`);
 }
 export const CACHED_NUMBER_TAG = "cachedNumber"

@@ -2,7 +2,7 @@ import CachedNumber from "@/components/CachedNumber";
 import { renderLog } from "@/utils/utils";
 
 export default function Home() {
-  renderLog("### --- Rendered home page.tsx");
+  renderLog("Rendered home page.tsx");
   return (
     <>
       <p className="text-lg font-bold">Next v14.0.4-canary.40</p>
