@@ -5,12 +5,6 @@ export default function Home() {
   renderLog("Rendered home page.tsx");
   return (
     <>
-    1-
-    {process.env.URL}
-    2-
-    {process.env.VERCEL_URL}
-    3-
-    {process.env.NEXT_PUBLIC_VERCEL_URL}
       <p className="text-lg font-bold">Next v14.0.4-canary.40</p>
       <CachedNumber />
       <div className="items-start">
