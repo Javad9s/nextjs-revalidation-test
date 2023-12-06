@@ -1,4 +1,4 @@
-get_path="https://nextjs-revalidation-test.vercel.app/api/get-sc-creds?BUILD_SECRET=3be3505c-867c-11ee-b9d1-0242ac120002"
+get_path="https://nextjs-revalidation-test.vercel.app/api/get-sc-creds"
 response=$(curl -s $get_path)
 # If we got a valid response, then export to process
 if [[ "$response" == *"SUSPENSE_CACHE_"* ]]; then

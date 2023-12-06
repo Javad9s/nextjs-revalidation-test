@@ -10,12 +10,11 @@ declare global {
 export const dynamic = "force-dynamic";
 
 export function GET(req: NextRequest) {
-  const { searchParams } = req.nextUrl;
-  const BUILD_SECRET = searchParams.get("BUILD_SECRET");
-  if (!BUILD_SECRET || BUILD_SECRET !== process.env.BUILD_SECRET) {
-    return NextResponse.json("", { status: 401 });
-  }
-
+  // const { searchParams } = req.nextUrl;
+  // const BUILD_SECRET = searchParams.get("BUILD_SECRET");
+  // if (!BUILD_SECRET || BUILD_SECRET !== process.env.BUILD_SECRET) {
+  //   return NextResponse.json("", { status: 401 });
+  // }
   try {
     const { cacheHandler } = globalThis.__incrementalCache;
     const endpoint = new URL(cacheHandler["cacheEndpoint"]);

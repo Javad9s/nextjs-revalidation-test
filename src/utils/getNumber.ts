@@ -31,11 +31,11 @@ const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
   { tags: [CACHED_NUMBER_TAG] },
 );
 async function GetFetchCachedNumber() {
-  // PUBLIC_URL = "http://localhost:3000"
-  // PUBLIC_URL = "https://nextjs-revalidation-test.vercel.app"
+  // NEXT_PUBLIC_SITE_URL = "http://localhost:3000"
+  // NEXT_PUBLIC_SITE_URL = "https://nextjs-revalidation-test.vercel.app"
   // renderLog("Called GetFetchCachedNumber");
   try {
-    const publicURL = process.env.PUBLIC_URL || "http://localhost:3000";
+    const publicURL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(publicURL + "/api/get-number", {
       next: { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
     });
@@ -49,11 +49,11 @@ async function GetFetchCachedNumber() {
   }
 }
 async function GetFetchCachedNumber_NoRevalidate() {
-  // PUBLIC_URL = "http://localhost:3000"
-  // PUBLIC_URL = "https://nextjs-revalidation-test.vercel.app"
+  // NEXT_PUBLIC_SITE_URL = "http://localhost:3000"
+  // NEXT_PUBLIC_SITE_URL = "https://nextjs-revalidation-test.vercel.app"
   // renderLog("Called GetFetchCachedNumber");
   try {
-    const publicURL = process.env.PUBLIC_URL || "http://localhost:3000";
+    const publicURL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(publicURL + "/api/get-number", {
       next: { tags: [CACHED_NUMBER_TAG] },
       cache: "force-cache",
