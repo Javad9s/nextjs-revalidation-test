@@ -47,6 +47,8 @@ export default function RevalidationPanel() {
   const onRedeploy = () => {
     startTransition(async () => {
       try {
+        var ans = prompt("Please answer the following question: (1 + 1 = ?)");
+        if (!ans || ans != "2") throw new Error();
         const redeployment_URI =
           "https://next-personal-assistant.vercel.app/api/revalidation-test-deploy";
         const res = await fetch(redeployment_URI, {
