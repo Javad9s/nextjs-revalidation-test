@@ -12,10 +12,12 @@ export function generateStaticParams() {
   const ids = [{ id: "01" }, { id: "02" }];
   return ids;
 }
+function isAllNumbers(str: string): boolean {
+  return /^\d+$/.test(str);
+}
 export default function Page({ params: { id } }: Props) {
   renderLog(`Rendered param page ${id}.tsx`);
-  const number = parseInt(id);
-  if (number >= 30 && number <= 59) {
+  if (!isAllNumbers(id)) {
     notFound();
   }
   const links = [
@@ -28,6 +30,9 @@ export default function Page({ params: { id } }: Props) {
   ];
   return (
     <>
+      <p className="text-lg font-bold">{`param = ${id}`}</p>
+      <CachedNumber />
+      <RandomNumber />
       <div className="flex flex-wrap justify-center gap-2">
         {links.map((link, index) => (
           <Link
@@ -40,10 +45,11 @@ export default function Page({ params: { id } }: Props) {
           </Link>
         ))}
       </div>
-      <p className="text-lg font-bold">{`param = ${id}`}</p>
-      <p>Id 30 to 59 will return a notfound</p>
-      <CachedNumber />
-      <RandomNumber />
+      <p>Every numeric id (10,11,...) will render and cache a new page.</p>
+      <p>
+        Non-numeric ids will render and cache a new and specific &quot;not
+        found&quot; page.
+      </p>
     </>
   );
 }

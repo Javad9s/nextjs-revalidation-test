@@ -1,4 +1,5 @@
 import CachedNumber from "@/components/CachedNumber";
+import RandomNumber from "@/components/RandomNumber";
 import { renderLog } from "@/utils/utils";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <p className="text-lg font-bold">Next v14.0.4-canary.44</p>
       <CachedNumber />
+      <RandomNumber />
       <div className="items-start">
         <p className="text-lg font-bold">Steps to reproduce</p>
         <br />
