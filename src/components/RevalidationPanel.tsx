@@ -54,7 +54,7 @@ export default function RevalidationPanel() {
           headers: { "Content-Type": "application/json" },
         });
         if (!res.ok) {
-          setMessage("Error!");
+          setMessage(await res.text());
           console.log(res);
           return;
         }
