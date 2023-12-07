@@ -10,7 +10,6 @@ export default function Page() {
       <p className="text-lg font-bold">Control Panel</p>
       <CachedNumber />
       <RandomNumber />
-      <p className="text-lg font-bold">Revalidate each page:</p>
       <RevalidationPanel />
     </>
   );

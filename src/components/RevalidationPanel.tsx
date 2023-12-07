@@ -76,19 +76,19 @@ export default function RevalidationPanel() {
           onClick={onRevalidateRootLayout}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          root layout
+          revalidatePath(&quot;/&quot;, &quot;layout&quot;)
         </button>
         <button
           onClick={onRevalidateCacheTag}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          cache tag
+            revalidateTag(&quot;cachedNumber&quot;)
         </button>
         <button
           onClick={onRevalidateCustomPath}
           className="rounded-lg bg-indigo-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-indigo-700 active:shadow-lg"
         >
-          custom path
+          revalidatePath(custom)
         </button>
         <button
           onClick={onRedeploy}
