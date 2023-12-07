@@ -14,28 +14,31 @@ export function GetRandomNumber() {
   return `<${getInt(randomNumber)}> ${utcDate} ${utcTime}`;
 }
 
-const GetUnsatableCachedNumber = unstable_cache(
+const GetUnsatableCachedNumber_ISR = unstable_cache(
   async () => {
-    return GetRandomNumber();
+    const randomNumber = GetRandomNumber();
+    renderLog(`Called unstable_cache ${randomNumber}`);
+    return randomNumber;
   },
   [CACHED_NUMBER_TAG],
   { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
 );
 
-// Buggy
-const GetUnsatableCachedNumber_NoRevalidate = unstable_cache(
+const GetUnsatableCachedNumber = unstable_cache(
   async () => {
-    return GetRandomNumber();
+    const randomNumber = GetRandomNumber();
+    renderLog(`Called unstable_cache ${randomNumber}`);
+    return randomNumber;
   },
   [CACHED_NUMBER_TAG],
   { tags: [CACHED_NUMBER_TAG] },
 );
-async function GetFetchCachedNumber() {
+async function GetFetchCachedNumber_ISR(): Promise<string> {
   // NEXT_PUBLIC_SITE_URL = "http://localhost:3000"
   // NEXT_PUBLIC_SITE_URL = "https://nextjs-revalidation-test.vercel.app"
-  // renderLog("Called GetFetchCachedNumber");
   try {
-    const publicURL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const publicURL =
+      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(publicURL + "/api/get-number", {
       next: { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
     });
@@ -48,12 +51,12 @@ async function GetFetchCachedNumber() {
     return "api-error";
   }
 }
-async function GetFetchCachedNumber_NoRevalidate() {
+async function GetFetchCachedNumber(): Promise<string> {
   // NEXT_PUBLIC_SITE_URL = "http://localhost:3000"
   // NEXT_PUBLIC_SITE_URL = "https://nextjs-revalidation-test.vercel.app"
-  // renderLog("Called GetFetchCachedNumber");
   try {
-    const publicURL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const publicURL =
+      process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(publicURL + "/api/get-number", {
       next: { tags: [CACHED_NUMBER_TAG] },
       cache: "force-cache",
@@ -67,4 +70,20 @@ async function GetFetchCachedNumber_NoRevalidate() {
     return "api-error";
   }
 }
-export const GetCachedNumber = GetFetchCachedNumber_NoRevalidate;
+export function GetCachedNumber(): Promise<string> {
+  switch (process.env.CACHE_METHOD) {
+    case "fetch_isr":
+      return GetFetchCachedNumber_ISR();
+    case "unstable_cache":
+      return GetUnsatableCachedNumber();
+    case "unstable_cache_isr":
+      return GetUnsatableCachedNumber_ISR();
+    case "fetch":
+    default:
+      return GetFetchCachedNumber();
+  }
+}
+// export const GetCachedNumber = GetFetchCachedNumber;
+// export const GetCachedNumber = GetFetchCachedNumber_ISR;
+// export const GetCachedNumber = GetUnsatableCachedNumber;
+// export const GetCachedNumber = GetUnsatableCachedNumber_ISR;
