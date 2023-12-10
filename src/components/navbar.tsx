@@ -11,6 +11,7 @@ export default function Navbar() {
     { href: "/static/04", title: "Static 04" },
     { href: "/isr/10s", title: "ISR 10s", prefetch: false },
     { href: "/isr/1h", title: "ISR 1h" },
+    { href: "/isr/2h", title: "ISR 1h", prefetch: false },
     { href: "/dynamic", title: "Dynamic", prefetch: false },
     { href: "/params/01", title: "params/01" },
     { href: "/control-panel", title: "Control Panel" },
