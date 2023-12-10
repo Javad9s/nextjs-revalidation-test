@@ -6,7 +6,7 @@ export default function Home() {
   renderLog("Rendered home page.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Next v14.0.4-canary.47</p>
+      <p className="text-lg font-bold">Next v14.0.5-canary.5</p>
       <CachedNumber />
       <RandomNumber />
       <div className="items-start">
