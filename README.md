@@ -2,7 +2,7 @@
 
 Deploy the project to Vercel and set this environment variables:
 
-Env | Purpose | Example |
+Env | Description | Example |
 --- | --- | --- |
 NEXT_PUBLIC_SITE_URL | Necessary for internal api fetch | https://nextjs-revalidation-test.vercel.app | 
 CACHE_METHOD | Determines the cache method | `fetch` or `fetch_isr` or `unstable_cache` or `unstable_cache_isr` | 
@@ -42,23 +42,23 @@ If you see "Global Cache: api-error" on website it is because the internal api w
 3.  Also, it seems unstable_cache is returning different result to different pages at the same time.
 4. ...
 
-### Side issue #1 (cache is not consistence during build on vercel)
+### Side issue #1 (Cache is not consistence during build on vercel)
 Sometimes Global Cache for prerendered pages during build process is not consistence between different page. Most of the times they serve a new and updated global cache while global cache shown in dynamic page is the same from the previous build.
 
 ### Side issue #2 (Calling revalidatePath in a server action causes unnecessary render on the current page)
-. This happens in local build as well. Control panel will render once which will be lost and will not be cached. Next time you visit control panel you might still get old data or a different set of data. For this issue in local build, you can call revalidatePath(custom) and keep an eye on different values under "Page Specific" section in control panel (also keep in mind react, renders each page two times, one for hard reload and one for RSC and soft navigation).
+This happens in local build as well. Control panel will render once which will be lost and will not be cached. Next time you visit control panel you might still get old data or a different set of data. For this issue in local build, you can call revalidatePath(custom) and keep an eye on different values under "Page Specific" section in control panel (also keep in mind react, renders each page two times, one for hard reload and one for RSC and soft navigation).
 
-### Side issue #3 (app router serves stale data despite rendering fresh pages)
+### Side issue #3 (App router serves stale data despite rendering fresh pages)
 When attempting to revalidate with hard reloads. If you are lucky and caused a new render, at that specific hit you still get the stale data while you see the render log in the dashboard. Only After next reload or soft navigation or `router.refresh()` new rendered page will be served.
 
-### Side issue #4 (can't revalidate not found page)
+### Side issue #4 (Can't revalidate not found page)
 
 1. Go to "Control Panel" click on the "root layout" button.
 2. Click on "not found" button on navbar or type in any arbitrary address.
 3.1. (On Vercel) general not found page always returns stale data.
 3.2. (On local build) not found page is a dynamic page.
 
-### Side issue #5 (cached notfound())
+### Side issue #5 (Cached notfound())
 
 1. Type in any non-numeric ids like /params/gg to /params/njs.
 2. Pages that use notFound() from next/navigation are actually cached.
