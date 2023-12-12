@@ -2,6 +2,12 @@ export default function ReadMe() {
   return (
     <div className="max-w-4xl">
       <div className="WordSection1">
+        <a
+          href="https://github.com/Javad9s/nextjs-revalidation-test"
+          className="text-blue-600 hover:underline"
+        >
+          https://github.com/Javad9s/nextjs-revalidation-test
+        </a>
         <p className="text-lg font-bold">
           Vercel Deploy: Revalidation works poorly on pages that are cached in
           prerendering during build time
