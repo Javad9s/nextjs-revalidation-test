@@ -57,8 +57,8 @@ export default function ReadMe() {
           vercel account : dashboard / Logs.
         </p>
         <p className="MsoNormal">
-          If you see &quot;Global Cache: api-error&quot; on website it is
-          because the internal api was not ready during build so deploy it again
+          If you see &quot;Global Cache: api-error&quot; on website, it is
+          because the internal api was not ready during build, so deploy it again
           and it should be ok.
         </p>
         <br />
@@ -96,7 +96,7 @@ export default function ReadMe() {
           <br />
           ### --- 08:24:58 --- Called get-number api &lt;730&gt; 12-07 08:24:58
           <br />
-          ### --- 08:26:09 --- Rendered dynamic page.tsx{" "}
+          ### --- 08:26:09 --- Rendered dynamic page.tsx
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           5-
@@ -130,22 +130,22 @@ export default function ReadMe() {
         <p className="MsoListParagraphCxSpFirst">
           1-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Same as 2.1
+          Same as 1.1
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           2-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Same as 2.2
+          Same as 1.2
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           3-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Same as 2.3
+          Same as 1.3
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           4-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Same as 2.4
+          Same as 1.4
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           5-
@@ -180,8 +180,7 @@ export default function ReadMe() {
           1-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
           Nextjs spam calls unstable_cache multiple times during build and
-          revalidation calls are duplicate. Some fixes that applied on fetch
-          should be apply to unstable_cache as well.
+          revalidation calls are duplicate.
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           2-
@@ -202,7 +201,7 @@ export default function ReadMe() {
         <br />
         <p className="MsoNormal">
           <span className="text-lg font-bold">
-            Side issue #1 (Cache is not consistence during build on vercel){" "}
+            Side issue #1 (Cache is not consistence during build on vercel)
           </span>
           Sometimes Global Cache for prerendered pages during build process is
           not consistence between different page. Most of the times they serve a
@@ -213,7 +212,7 @@ export default function ReadMe() {
         <p className="MsoNormal">
           <span className="text-lg font-bold">
             Side issue #2 (Calling revalidatePath in a server action causes
-            unnecessary render on the current page){" "}
+            unnecessary render on the current page)
           </span>
           This happens in local build as well. Control panel will render once
           which will be lost and will not be cached. Next time you visit control
@@ -227,7 +226,7 @@ export default function ReadMe() {
         <p className="MsoNormal">
           <span className="text-lg font-bold">
             Side issue #3 (App router serves stale data despite rendering fresh
-            pages){" "}
+            pages)
           </span>
           When attempting to revalidate with hard reloads. If you are lucky and
           caused a new render, at that specific hit you still get the stale data
