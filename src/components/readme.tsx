@@ -166,8 +166,7 @@ export default function ReadMe() {
           For isr pages that have &quot;prefetch = false&quot; including
           &quot;isr 10s&quot; and &quot;isr 2h&quot;, first time navigating will
           cause a new render but new data will always be served in next visit
-          [side issue #3]. This behavior is extremely intense in &quot;isr
-          10s&quot; page.
+          [side issue #3].
         </p>
         <br />
         <p className="MsoNormal">
@@ -225,14 +224,15 @@ export default function ReadMe() {
         <br />
         <p className="MsoNormal">
           <span className="text-lg font-bold">
-            Side issue #3 (App router serves stale data despite rendering fresh
+            Side issue #3 (On Vercel: App router serves stale data despite rendering fresh
             pages)
           </span>
           When attempting to revalidate with hard reloads. If you are lucky and
           caused a new render, at that specific hit you still get the stale data
           while you see the render log in the dashboard. Only After next reload
           or soft navigation or router.refresh() new rendered page will be
-          served.
+          served. This behavior is extremely intense in &quot;isr
+          10s&quot; page.
         </p>
       </div>
       <div className="mt-9">

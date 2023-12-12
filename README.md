@@ -34,7 +34,7 @@ If you see "Global Cache: api-error" on website, it is because the internal api 
 4. Same as 1.4
 5. Most pages will render again proprerly here.
 6. If a page is still serving old data one hard reload (ctrl + R) will cause a new render but keep in mind you will still see the stale page until next reload or soft navigation or `router.refresh()` **[side issue #3]**. 
-7. For isr pages that have `prefetch = false` including "isr 10s" and "isr 2h", first time navigating will cause a new render but new data will always be served in next visit **[side issue #3]**. This behavior is extremely intense in "isr 10s" page.
+7. For isr pages that have `prefetch = false` including "isr 10s" and "isr 2h", first time navigating will cause a new render but new data will always be served in next visit **[side issue #3]**.
 
 ### 3- Behavior with unstable_cache and isr (CACHE_METHOD = "unstable_cache_isr"):
 
@@ -49,8 +49,8 @@ Sometimes Global Cache for prerendered pages during build process is not consist
 ### Side issue #2 (Calling revalidatePath in a server action causes unnecessary render on the current page)
 This happens in local build as well. Control panel will render once which will be lost and will not be cached. Next time you visit control panel you might still get old data or a different set of data. For this issue in local build, you can call revalidatePath(custom) and keep an eye on different values under "Page Specific" section in control panel (also keep in mind react, renders each page two times, one for hard reload and one for RSC and soft navigation).
 
-### Side issue #3 (App router serves stale data despite rendering fresh pages)
-When attempting to revalidate with hard reloads. If you are lucky and caused a new render, at that specific hit you still get the stale data while you see the render log in the dashboard. Only After next reload or soft navigation or `router.refresh()` new rendered page will be served.
+### Side issue #3 (On Vercel: App router serves stale data despite rendering fresh pages)
+When attempting to revalidate with hard reloads. If you are lucky and caused a new render, at that specific hit you still get the stale data while you see the render log in the dashboard. Only After next reload or soft navigation or `router.refresh()` new rendered page will be served. This behavior is extremely intense in "isr 10s" page.
 
 ### Side issue #4 (Can't revalidate not found page)
 
