@@ -7,7 +7,9 @@ export default function Home() {
   renderLog("Rendered home page.tsx");
   return (
     <>
-      <p className="text-lg font-bold">Next v14.0.5-canary.5</p>
+      <p className="text-lg font-bold">Next v14.0.5-canary.11</p>
+      <p className="text-lg font-bold">{`CACHE_METHOD : ${process.env.CACHE_METHOD}`}</p>
+
       <CachedNumber />
       <RandomNumber />
       <ReadMe />
