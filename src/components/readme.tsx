@@ -10,7 +10,7 @@ export default function ReadMe() {
         </a>
         <p className="text-lg font-bold">
           Vercel Deploy: Revalidation works poorly on pages that are cached in
-          prerendering during build time
+          pre-rendering during build time
         </p>
         <br />
         <p className="MsoNormal">
@@ -150,7 +150,7 @@ export default function ReadMe() {
         <p className="MsoListParagraphCxSpMiddle">
           5-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Most pages will render again proprerly here.
+          Most pages will render again properly here.
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           6-
@@ -178,7 +178,7 @@ export default function ReadMe() {
         <p className="MsoListParagraphCxSpFirst">
           1-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Nextjs spam calls unstable_cache multiple times during build and
+          Next.js spam calls unstable_cache multiple times during build and
           revalidation calls are duplicate.
         </p>
         <p className="MsoListParagraphCxSpMiddle">
@@ -202,7 +202,7 @@ export default function ReadMe() {
           <span className="text-lg font-bold">
             Side issue #1 (Cache is not consistence during build on vercel)
           </span>
-          Sometimes Global Cache for prerendered pages during build process is
+          Sometimes Global Cache for pre-rendered pages during build process is
           not consistence between different page. Most of the times they serve a
           new and updated global cache while global cache shown in dynamic page
           is the same from the previous build.

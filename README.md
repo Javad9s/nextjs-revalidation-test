@@ -1,4 +1,4 @@
-# Vercel Deploy: Revalidation works poorly on pages that are cached in prerendering during build time
+# Vercel Deploy: Revalidation works poorly on pages that are cached in pre-rendering during build time
 
 Deploy the project to Vercel and set this environment variables:
 
@@ -32,19 +32,19 @@ If you see "Global Cache: api-error" on website, it is because the internal api 
 2. Same as 1.2
 3. Same as 1.3
 4. Same as 1.4
-5. Most pages will render again proprerly here.
+5. Most pages will render again properly here.
 6. If a page is still serving old data one hard reload (ctrl + R) will cause a new render but keep in mind you will still see the stale page until next reload or soft navigation or `router.refresh()` **[side issue #3]**. 
 7. For isr pages that have `prefetch = false` including "isr 10s" and "isr 2h", first time navigating will cause a new render but new data will always be served in next visit **[side issue #3]**.
 
 ### 3- Behavior with unstable_cache and isr (CACHE_METHOD = "unstable_cache_isr"):
 
-1. Nextjs spam calls unstable_cache multiple times during build and revalidation calls are duplicate. 
+1. Next.js spam calls unstable_cache multiple times during build and revalidation calls are duplicate. 
 2. Sometimes some random renders happen.
 3.  Also, it seems unstable_cache is returning different result to different pages at the same time.
 4. ...
 
 ### Side issue #1 (Cache is not consistence during build on vercel)
-Sometimes Global Cache for prerendered pages during build process is not consistence between different page. Most of the times they serve a new and updated global cache while global cache shown in dynamic page is the same from the previous build.
+Sometimes Global Cache for pre-rendered pages during build process is not consistence between different page. Most of the times they serve a new and updated global cache while global cache shown in dynamic page is the same from the previous build.
 
 ### Side issue #2 (Calling revalidatePath in a server action causes unnecessary render on the current page)
 This happens in local build as well. Control panel will render once which will be lost and will not be cached. Next time you visit control panel you might still get old data or a different set of data. For this issue in local build, you can call revalidatePath(custom) and keep an eye on different values under "Page Specific" section in control panel (also keep in mind react, renders each page two times, one for hard reload and one for RSC and soft navigation).

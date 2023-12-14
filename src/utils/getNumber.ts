@@ -14,7 +14,7 @@ export function GetRandomNumber() {
   return `<${getInt(randomNumber)}> ${utcDate} ${utcTime}`;
 }
 
-const GetUnsatableCachedNumber_ISR = unstable_cache(
+const GetUnstableCachedNumber_ISR = unstable_cache(
   async () => {
     const randomNumber = GetRandomNumber();
     renderLog(`Called unstable_cache ${randomNumber}`);
@@ -24,7 +24,7 @@ const GetUnsatableCachedNumber_ISR = unstable_cache(
   { revalidate: 259200, tags: [CACHED_NUMBER_TAG] },
 );
 
-const GetUnsatableCachedNumber = unstable_cache(
+const GetUnstableCachedNumber = unstable_cache(
   async () => {
     const randomNumber = GetRandomNumber();
     renderLog(`Called unstable_cache ${randomNumber}`);
@@ -75,9 +75,9 @@ export function GetCachedNumber(): Promise<string> {
     case "fetch_isr":
       return GetFetchCachedNumber_ISR();
     case "unstable_cache":
-      return GetUnsatableCachedNumber();
+      return GetUnstableCachedNumber();
     case "unstable_cache_isr":
-      return GetUnsatableCachedNumber_ISR();
+      return GetUnstableCachedNumber_ISR();
     case "fetch":
     default:
       return GetFetchCachedNumber();
