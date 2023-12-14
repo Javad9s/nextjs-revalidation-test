@@ -11,7 +11,7 @@ export default function Page() {
       <CachedNumber />
       <RandomNumber />
       <p>{`CACHE_METHOD : ${process.env.CACHE_METHOD}`}</p>
-      <RevalidationPanel />
+      <RevalidationPanel currentMethod={process.env.CACHE_METHOD} />
     </>
   );
 }

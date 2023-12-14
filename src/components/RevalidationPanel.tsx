@@ -6,12 +6,16 @@ import {
   RevalidateRootLayout,
 } from "@/utils/actions";
 import { useState, useTransition } from "react";
-export default function RevalidationPanel() {
+
+interface Props {
+  currentMethod?: string;
+}
+export default function RevalidationPanel({ currentMethod }: Props) {
   const [isPending, startTransition] = useTransition();
   const [message, setMessage] = useState("");
 
   const [selectedMethod, setSelectedMethod] = useState(
-    process.env.CACHE_METHOD || "fetch",
+    currentMethod || "fetch",
   );
   const handleMethodChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMethod(event.target.value);
