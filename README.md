@@ -1,4 +1,4 @@
-# Vercel Deploy: Revalidation works poorly on pages that are cached in pre-rendering during build time
+# Vercel Deploy: Revalidation works poorly on pages that are cached by pre-rendering during build time
 
 Deploy the project to Vercel and set this environment variables:
 
@@ -60,7 +60,7 @@ When attempting to revalidate with hard reloads. If you are lucky and caused a n
 
 ### Side issue #5 (Cached notfound())
 
-1. Type in any non-numeric ids like /params/gg to /params/njs.
+1. Type in any non-numeric ids like /params/gg or /params/njs.
 2. Pages that use notFound() from next/navigation are actually cached.
 3. This could cause Disk exhaustion.
 4. notFound() should always redirect to one general not found page.

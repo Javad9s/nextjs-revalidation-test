@@ -9,7 +9,7 @@ export default function ReadMe() {
           https://github.com/Javad9s/nextjs-revalidation-test
         </a>
         <p className="text-lg font-bold">
-          Vercel Deploy: Revalidation works poorly on pages that are cached in
+          Vercel Deploy: Revalidation works poorly on pages that are cached by
           pre-rendering during build time
         </p>
         <br />
@@ -253,7 +253,7 @@ export default function ReadMe() {
         <p>3.2. (On local build) not found page is a dynamic page.</p>
         <br />
         <p className="text-lg font-bold">Side issue #5 (Cached notfound())</p>
-        <p>1. Type in any non-numeric ids like /params/gg to /params/njs.</p>
+        <p>1. Type in any non-numeric ids like /params/gg or /params/njs.</p>
         <p>
           2. Pages that use notFound() from next/navigation are actually cached.
         </p>
