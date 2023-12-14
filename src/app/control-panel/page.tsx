@@ -10,6 +10,7 @@ export default function Page() {
       <p className="text-lg font-bold">Control Panel</p>
       <CachedNumber />
       <RandomNumber />
+      <p>{`CACHE_METHOD : ${process.env.CACHE_METHOD}`}</p>
       <RevalidationPanel />
     </>
   );
