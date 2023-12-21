@@ -1,4 +1,5 @@
-# Vercel Deploy: Revalidation works poorly on pages that are cached by pre-rendering during build time
+# On Vercel: On demand revalidation doesn't work for pages that are pre-rendered during build time.
+including static pages and `generateStaticParams()`
 
 Deploy the project to Vercel and set this environment variables:
 

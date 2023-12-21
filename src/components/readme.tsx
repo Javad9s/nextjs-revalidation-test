@@ -9,8 +9,11 @@ export default function ReadMe() {
           https://github.com/Javad9s/nextjs-revalidation-test
         </a>
         <p className="text-lg font-bold">
-          Vercel Deploy: Revalidation works poorly on pages that are cached by
-          pre-rendering during build time
+          On Vercel: On demand revalidation doesn't work for pages that are pre-rendered during build time.
+        </p>
+        <br />
+        <p>
+          including static pages and &quot;generateStaticParams()&quot;
         </p>
         <br />
         <p className="MsoNormal">
