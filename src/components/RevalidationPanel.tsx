@@ -112,6 +112,7 @@ export default function RevalidationPanel({ currentMethod }: Props) {
             >
               <option value="fetch">fetch</option>
               <option value="fetch_isr">fetch_isr</option>
+              <option value="fetch_no_force">fetch_no_force</option>
               <option value="unstable_cache">unstable_cache</option>
               <option value="unstable_cache_isr">unstable_cache_isr</option>
             </select>

@@ -38,7 +38,8 @@ export default function ReadMe() {
               <td className="p-1">
                 determines the cache method
                 <br /> Ex: &quot;fetch&quot; or &quot;fetch_isr&quot; or
-                &quot;unstable_cache&quot; or &quot;unstable_cache_isr&quot;
+                &quot;fetch_no_force&quot; or &quot;unstable_cache&quot; or
+                &quot;unstable_cache_isr&quot;
               </td>
             </tr>
             <tr className="divide-x">
