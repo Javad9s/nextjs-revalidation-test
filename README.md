@@ -17,8 +17,8 @@ If you see "Global Cache: api-error" on website because the internal api was not
 
 1. Go to dynamic page (which will render in each hit). You should see something like "Global Cache: <266> 12-07 07:46:03". This value is what we expect to see in all other pages **[1]**.
 
-2. Click on "Control Panel". Then click on `revalidatePath("/", "layout")` **[2]**.
-3. Click on "dynamic" again. You will see new global cache in dynamic page. You should see some logs like this in dashboard as well: "### --- 08:24:58 --- Called get-number api" and "### --- 08:26:09 --- Rendered dynamic page.tsx"
+2. Go to Control Panel. Then click on `revalidatePath("/", "layout")` **[2]**.
+3. Go to dynamic page again. You will see new global cache in dynamic page. You should see some logs like this in dashboard as well: "### --- 08:24:58 --- Called get-number api" and "### --- 08:26:09 --- Rendered dynamic page.tsx"
 4. Go to other static pages and param pages. Notice pages that were previously cached during build process, have a hard time revalidating and you won"t see a log as well. Hence "/params/01" and "/params/02" will still show old data because they are rendered using `generateStaticParams()`. but other params (e.g. /params/03) will render again and show fresh data. 
 5. In this stage if you somehow can cause a new render in those pages, they will revalidate and cache properly from this point forward (in another word they are cleaned). The workaround is you go to that page and hit reloads (ctrl + R). Keep in mind soft navigation and `router.refresh()` won't cause a new render in this stage. If you are lucky enough, you can get one or two new renders in every step, then you click on `revalidatePath("/", "layout")` again and repeat the process until you clean all of the pages **[3]**.
 

@@ -79,14 +79,14 @@ export default function ReadMe() {
         <p className="MsoListParagraphCxSpMiddle">
           2-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Click on &quot;Control Panel&quot;. Then click on
-          revalidatePath(&quot;/&quot;, &quot;layout&quot;) [2].
+          Go to Control Panel. Then click on revalidatePath(&quot;/&quot;,
+          &quot;layout&quot;) [2].
         </p>
         <p className="MsoListParagraphCxSpMiddle">
           3-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          Click on &quot;dynamic&quot; again. You will see new global cache in
-          dynamic page. You should see some logs like this in dashboard as well:
+          Go to dynamic page again. You will see new global cache in dynamic
+          page. You should see some logs like this in dashboard as well:
           <br />
           ### --- 08:24:58 --- Called get-number api &lt;730&gt; 12-07 08:24:58
           <br />
@@ -143,8 +143,8 @@ export default function ReadMe() {
         <p className="MsoListParagraphCxSpMiddle">
           5-
           <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-          If a page is still serving old data, one reload (ctrl + R) will cause a
-          new render, but keep in mind you will still see the stale page until
+          If a page is still serving old data, one reload (ctrl + R) will cause
+          a new render, but keep in mind you will still see the stale page until
           next reload or soft navigation or router.refresh() [3].
         </p>
         <p className="MsoListParagraphCxSpLast">
