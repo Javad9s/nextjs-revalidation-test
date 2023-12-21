@@ -9,7 +9,7 @@ export default function ReadMe() {
           https://github.com/Javad9s/nextjs-revalidation-test
         </a>
         <p className="text-lg font-bold">
-          On Vercel: On demand revalidation doesn't work for pages that are pre-rendered during build time.
+          On Vercel: On demand revalidation doesn&apos;t work for pages that are pre-rendered during build time.
         </p>
         <br />
         <p>
