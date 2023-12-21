@@ -83,7 +83,3 @@ export function GetCachedNumber(): Promise<string> {
       return GetFetchCachedNumber();
   }
 }
-// export const GetCachedNumber = GetFetchCachedNumber;
-// export const GetCachedNumber = GetFetchCachedNumber_ISR;
-// export const GetCachedNumber = GetUnsatableCachedNumber;
-// export const GetCachedNumber = GetUnsatableCachedNumber_ISR;
