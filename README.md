@@ -48,11 +48,7 @@ When attempting to revalidate with hard reloads. If you are lucky and caused a n
 2. Click on "not found" button on navbar or type in any arbitrary address.
 3. On Vercel general not found page always returns stale data. While on local build not found page is a dynamic page.
 
-### [5] Cached notFound()
+### [5] Calling notFound() Results in a separate cached page
 
 1. Type in any non-numeric ids like /params/gg or /params/njs.
-2. Pages that use notFound() from next/navigation are actually cached.
-3. This could cause Disk exhaustion.
-4. notFound() should always redirect to one general not found page.
-5. Or implement a garbage collector mechanism with Maximum cache size and maximum cache age that purges oldest visited page.
-6. With this behavior regular pages with params will also be generated and cached without proper control.
+2. Pages that use `notFound()` from next/navigation are actually cached. This could cause Disk exhaustion. `notFound()` should always redirect to one general not found page.

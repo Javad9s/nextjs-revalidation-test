@@ -211,22 +211,14 @@ export default function ReadMe() {
         </p>
         <p>3.2. (On local build) not found page is a dynamic page.</p>
         <br />
-        <p className="text-lg font-bold">[5] Cached notFound()</p>
+        <p className="text-lg font-bold">
+          [5] Calling notFound() Results in a separate cached page
+        </p>
         <p>1. Type in any non-numeric ids like /params/gg or /params/njs.</p>
         <p>
           2. Pages that use notFound() from next/navigation are actually cached.
-        </p>
-        <p>3. This could cause Disk exhaustion.</p>
-        <p>
-          4. notFound() should always redirect to one general not found page.
-        </p>
-        <p>
-          5. Or implement a garbage collector mechanism with Maximum cache size
-          and maximum cache age that purges oldest visited page.
-        </p>
-        <p>
-          6. With this behavior regular pages with params will also be generated
-          and cached without proper control.
+          This could cause Disk exhaustion. notFound() should always redirect to
+          one general not found page.
         </p>
       </div>
     </div>
