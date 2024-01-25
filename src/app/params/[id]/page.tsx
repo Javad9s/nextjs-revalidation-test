@@ -38,7 +38,7 @@ export default function Page({ params: { id } }: Props) {
           <Link
             key={index}
             href={link.href}
-            prefetch={link.prefetch || true}
+            prefetch={link.prefetch}
             className="bg-slate-600 px-3 py-1.5 text-sm text-white duration-150 hover:bg-slate-950 active:shadow-lg"
           >
             {link.title}
