@@ -8,7 +8,7 @@ export default function Navbar() {
     { href: "/static/01", title: "Static 01" },
     { href: "/static/02", title: "Static 02" },
     { href: "/static/03", title: "Static 03" },
-    { href: "/static/04", title: "Static 04" },
+    { href: "/static/04", title: "Static 04", prefetch: false  },
     { href: "/isr/10s", title: "ISR 10s", prefetch: false },
     { href: "/isr/1h", title: "ISR 1h" },
     { href: "/isr/2h", title: "ISR 2h", prefetch: false },
